@@ -1,0 +1,25 @@
+name: Lint Code
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar linter
+        run: |
+          pip install flake8
+
+      - name: Validar formato con Flake8
+        run: |
+          flake8 app.py --max-line-length=100

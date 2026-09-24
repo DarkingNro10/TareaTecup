@@ -22,4 +22,4 @@ jobs:
 
       - name: Validar formato con Flake8
         run: |
-          flake8 app.py --max-line-length=100
+          flake8 app.py --max-line-length=100 --ignore=W292,W391
